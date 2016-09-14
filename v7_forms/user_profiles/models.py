@@ -2,7 +2,7 @@ from django.db import models
 
 
 class UserProfile(models.Model):
-    user = models.ForeignKey('auth.User')
+    user = models.OneToOneField('auth.User', related_name='profile')
     shipping_first_name = models.CharField(max_length=256, blank=True)
     shipping_last_name = models.CharField(max_length=256, blank=True)
     shipping_country = models.CharField(max_length=256, blank=True)
