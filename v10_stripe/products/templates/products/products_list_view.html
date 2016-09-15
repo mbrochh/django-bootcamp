@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Home</h1>
+
+{% for product in products %}
+<div>
+  <a href="{% url "products_detail" pk=product.pk slug=product.slug %}">{{ product.title }}</a>
+</div>
+{% endfor %}
+{% endblock %}

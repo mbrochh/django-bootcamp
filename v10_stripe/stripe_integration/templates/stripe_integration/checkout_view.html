@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Checkout</h1>
+<form method="post" action=".">
+  {% csrf_token %}    
+  <input type="hidden" name="amount" value="{{ amount }}" />
+  <script
+  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="{{ STRIPE_PUBLISHABLE_KEY }}"
+  data-amount="{{ amount }}"
+  data-name="Django Bootcamp"
+  data-description="{{ title }}"
+  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+  data-locale="auto"
+  data-currency="sgd">
+  </script>
+</form>
+{% endblock %}
