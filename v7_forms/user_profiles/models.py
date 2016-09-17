@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
 
 
 class UserProfile(models.Model):
@@ -11,3 +14,9 @@ class UserProfile(models.Model):
     shipping_street = models.CharField(max_length=256, blank=True)
     shipping_zip = models.CharField(max_length=256, blank=True)
     shipping_phone = models.CharField(max_length=256, blank=True)
+    
+    
+@receiver(post_save, sender=User)
+def user_post_save_handler(sender, **kwargs):
+    if kwargs.get('created'):
+        UserProfile.objects.create(user=kwargs.get('instance'))
