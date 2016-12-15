@@ -1,3 +1,0 @@
-Django==1.9
-django-allauth==0.25.2
-stripe==1.37.0
