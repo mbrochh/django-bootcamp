@@ -16,7 +16,6 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.views.generic import TemplateView
 
 from products.views import ProductsListView
 
@@ -27,10 +26,5 @@ urlpatterns = [
     url(r'^$', ProductsListView.as_view(), name='home'),
     url(r'^products/', include('products.urls')),
     url(r'^profile/', include('user_profiles.urls')),
-    url(r'^checkout/$',
-        TemplateView.as_view(
-            template_name='checkout_view.html')),
-    url(r'^success/$',
-        TemplateView.as_view(
-            template_name='success_view.html')),
+    url(r'^stripe/', include('stripe.urls')),
 ]
