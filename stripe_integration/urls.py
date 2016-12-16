@@ -6,9 +6,9 @@ urlpatterns = [
     url(r'^checkout/$',
         TemplateView.as_view(
             template_name='stripe_integration/checkout_view.html'),
-        name='stripe_checkout'),
+        name='stripe_integration_checkout'),
     url(r'^success/$',
         TemplateView.as_view(
             template_name='stripe_integration/success_view.html'),
-        name='stripe_success'),
+        name='stripe_integration_success'),
 ]
