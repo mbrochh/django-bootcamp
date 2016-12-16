@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'products',
-    'stripe',
+    'stripe_integration',
     'user_profiles',
 ]
 

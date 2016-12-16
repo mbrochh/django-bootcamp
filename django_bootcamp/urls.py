@@ -26,5 +26,5 @@ urlpatterns = [
     url(r'^$', ProductsListView.as_view(), name='home'),
     url(r'^products/', include('products.urls')),
     url(r'^profile/', include('user_profiles.urls')),
-    url(r'^stripe/', include('stripe.urls')),
+    url(r'^stripe/', include('stripe_integration.urls')),
 ]
